@@ -4,7 +4,7 @@
 
 Built live during the **Pump.fun Build in Public Hackathon** (February 2026).
 
-![AEZOS Logo](public/aezos-logo.png)
+![AEZOS Logo](https://raw.githubusercontent.com/AEZOS/aezos-aegis-of-zeus-defense/refs/heads/main/app/public/aegis-logo.png)
 
 ## Technical Manifesto
 (See full manifesto in the PDF export or below)
@@ -25,3 +25,4 @@ anchor build
 ```
 
 See MANIFESTO.md for architecture, tokenomics, and roadmap.
+
