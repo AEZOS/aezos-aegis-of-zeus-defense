@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+:root {
+  --background: #020204;
+  --foreground: #ffffff;
+  --gold: #F5C64C;
+  --red: #FF3B30;
+  --green: #34C759;
+  --gold-glow: rgba(245, 198, 76, 0.4);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-red: var(--red);
+  --color-green: var(--green);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
+  overflow-x: hidden;
+}
+
+/* Custom Hide Scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animations */
+@keyframes colorShift {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 25px rgba(245, 198, 76, 0.3));
+  }
+
+  33% {
+    filter: drop-shadow(0 0 40px rgba(255, 59, 48, 0.4));
+  }
+
+  66% {
+    filter: drop-shadow(0 0 40px rgba(52, 199, 89, 0.4));
+  }
+}
+
+.animate-glow-cycle {
+  animation: colorShift 6s infinite ease-in-out;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.05;
+  }
+
+  /* Sub-transparent pulse peak */
+  40% {
+    opacity: 0;
+  }
+
+  /* Disappear at this point */
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.pulse-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: pulse-ring 8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Color cycling for rings */
+@keyframes ringColorShift {
+
+  0%,
+  100% {
+    border-color: rgba(245, 198, 76, 0.15);
+    box-shadow: 0 0 20px rgba(245, 198, 76, 0.1);
+  }
+
+  33% {
+    border-color: rgba(255, 59, 48, 0.15);
+    box-shadow: 0 0 20px rgba(255, 59, 48, 0.1);
+  }
+
+  66% {
+    border-color: rgba(52, 199, 89, 0.15);
+    box-shadow: 0 0 20px rgba(52, 199, 89, 0.1);
+  }
+}
+
+.animate-ring-colors {
+  animation: ringColorShift 6s infinite ease-in-out;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.015);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 15px var(--gold-glow);
+}
+
+/* Gradient Background */
+.bg-mesh {
+  background:
+    radial-gradient(at 0% 0%, rgba(245, 198, 76, 0.08) 0px, transparent 40%),
+    radial-gradient(at 100% 100%, rgba(52, 199, 89, 0.05) 0px, transparent 40%);
+}
+
+.section-label {
+  @apply text-[11px] font-black uppercase tracking-[0.5em] text-gold/40 mb-6 block;
+}
+
+.feature-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover {
+  border-color: rgba(245, 198, 76, 0.3);
+  background: linear-gradient(135deg, rgba(245, 198, 76, 0.05) 0%, rgba(245, 198, 76, 0) 100%);
+  transform: translateY(-5px);
+}
