@@ -2,7 +2,7 @@
 **Technical Manifesto v1.0**  
 **February 20, 2026**
 
-![AEZOS Logo](app/public/aezos-logo.png)
+![AEZOS Logo](https://raw.githubusercontent.com/AEZOS/aezos-aegis-of-zeus-defense/refs/heads/main/app/public/aegis-logo.png)
 
 ---
 
@@ -117,3 +117,4 @@ Every phase is **upgradable via governance**. Smart contracts use proxy patterns
 ```rust
 // Full code is in programs/aezos/src/lib.rs
 ```
+
